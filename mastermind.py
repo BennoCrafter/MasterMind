@@ -14,11 +14,12 @@ class MasterMind:
 
 
     def setup_sequence(self):
-        # creates the solution sequence
-        while not len(self.sequence) == self.sequence_len:
-            next_sequence_choice = random.choice(self.colors)
-            if next_sequence_choice not in self.sequence:
-                self.sequence.append(next_sequence_choice)
+        possibile_colors = self.colors.copy()
+        # creates the solution sequence without duplicates
+        for u in range(self.sequence_len):
+            next_sequence_choice = random.choice(possibile_colors)
+            self.sequence.append(next_sequence_choice)
+            possibile_colors.remove(next_sequence_choice)
 
 
     def get_user_inputs(self):
