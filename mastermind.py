@@ -36,6 +36,13 @@ class MasterMind:
                     print("Zur Auswahl stehen: " + str(self.colors))
             else:
                 print("\nDeine eingegebene Farbe ist bereits in deiner Auswahl bereits vorhanden!")
+                possibile_colors = []
+
+                for element in self.colors:
+                    if element not in self.player_sequence:
+                        possibile_colors.append(element)
+                print("Zur Auswahl stehen dir noch:",possibile_colors)
+                
         print("\nDeine eingegebene Zahlen sind:", self.player_sequence, "\nDeine vorherigen Eingaben waren:", self.player_sequence_prev)
         self.player_try += 1
         self.check_win()
